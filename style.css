@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;1,100;1,200&display=swap');
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgb(66, 65, 65);
+}
+.container{
+    position: relative;
+    background-color: rgb(35, 34, 34);
+    min-height: 500px;
+    border-radius: 225px 225px 20px 20px;
+    box-shadow: 0px 20px 50px 10px rgba(0, 0, 0, 0.3),
+    inset  20px 5px 100px rgba(0, 0, 0, 0.5),
+    inset  20px 3px 20px rgba(0, 0, 0, 0.5) ,
+    inset  -20px -20px 30px rgba(0, 0, 0, 0.5) ;
+}
+.clock{
+    position: relative;
+    width: 450px;
+    height: 450px;
+    background-color: rgb(44, 43, 43);
+    box-shadow: 20px 20px 50px 10px rgba(0, 0, 0, 0.3),
+    inset  20px 5px 100px rgba(0, 0, 0, 0.5),
+    inset  20px 3px 20px rgba(0, 0, 0, 0.5) ,
+    inset  -20px -20px 30px rgba(0, 0, 0, 0.5) ;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock::before{
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: black;
+    border: 4px solid rgb(150, 149, 149);
+    z-index: 4;
+}
+.clock span{
+    position: absolute;
+    inset: 20px;
+    color: rgb(255, 252, 252);
+    text-align: center;
+    /* 360/ 12 = 30deg */
+    transform: rotate(calc(30deg*var(--i)));
+}
+.clock span b{
+    font-size: 30px;
+    opacity: 0.5;
+    display: inline-block;
+    transform: rotate(calc(-30deg*var(--i)));
+}
+.circle{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.circle2{
+    width: 240px ;
+    height: 240px;
+}
+.circle3{
+    width: 180px ;
+    height: 180px;
+}
+.circle i{
+    position: absolute;
+    width: 2px;
+    height: 50%;
+    background-color: aquamarine;
+    transform-origin: bottom;
+    z-index: 3;
+}
+.circle2 i{
+    position: absolute;
+    width: 4px;
+    height: 50%;
+    background-color: rgb(50, 6, 227);
+    transform-origin: bottom;
+    z-index: 2;
+}
+.circle3 i{
+    position: absolute;
+    width: 6px;
+    height: 50%;
+    background-color: rgb(135, 45, 3);
+    transform-origin: bottom;
+   
+    z-index: 1;
+}
+.circle ::before{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: aquamarine;
+    box-shadow: 0px 0px 19px 1px aquamarine;
+    top: -8px;
+    left: -6.9px;
+}
+.circle2 ::before{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgb(50, 6, 227);
+    box-shadow: 0px 0px 19px 5px  rgb(50, 6, 227);
+    top: -8px;
+    left: -6px;
+}
+.circle3 ::before{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgb(223, 77, 8);
+    box-shadow: 0px 0px 19px 3px  rgb(212, 70, 4);
+    top: -8px;
+    left: -5px;
+}
+.time{
+    margin-bottom: 20px;
+    display: flex;
+    padding: 10px 20px;
+    font-size: 32px;
+    justify-content: space-around;
+    font-weight: 800;
+    box-shadow: 0px 0px 50px 1px black;
+    margin-top: 20px;
+}
+.hours{
+color:  rgb(223, 77, 8);
+}
+.minutes{
+    color: rgb(51, 0, 255);
+}
+.seconds{
+    color: aquamarine;;
+}
+.ampm{
+    color: rgb(201, 200, 200);
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+.time div:not(.ampm,.seconds)::after{
+    content: ':';
+    position: absolute;
+    padding-left: 30px;
+    animation: animate 1s steps(1) infinite;
+}
+@keyframes animate{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+}
+.time div:not(.ampm){
+    font-size: 40px;
+    min-width: 50px;
+}
+.date{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 20px  30px 20px; 
+    background-color: black;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px 1px rgb(65, 65, 65);
+}
+.date div{
+    padding: 10px;
+    color: white;
+    font-weight: 800;
+    font-size: 40px;
+}
